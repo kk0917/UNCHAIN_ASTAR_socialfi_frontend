@@ -10,7 +10,7 @@ import TopBar from '../components/topBar';
 import { connectToContract } from '../hooks/connect';
 import { balenceOf, distributeReferLikes, transfer } from '../hooks/FT';
 import type { PostType } from '../hooks/postFunction';
-import { getGeneralPost } from '../hooks/postFunction';
+import { getAllPosts } from '../hooks/postFunction';
 import {
   checkCreatedInfo,
   createProfile,
@@ -56,7 +56,7 @@ export default function home() {
       actingAccount: actingAccount!,
       setBalance: setBalance,
     });
-    getGeneralPost({ api: api!, setGeneralPostList: setGeneralPostList });
+    getAllPosts({ api: api!, setGeneralPostList: setGeneralPostList });
     if (isDistributed) {
       return;
     }

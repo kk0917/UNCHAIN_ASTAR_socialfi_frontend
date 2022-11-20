@@ -25,7 +25,7 @@ type PropsRP = {
   imgUrl: string;
 };
 
-// type for getGeneralPost function
+// type for getAllPosts function
 type PropsGGP = {
   api: ApiPromise;
   setGeneralPostList: Dispatch<React.SetStateAction<PostType[]>>;
@@ -77,9 +77,9 @@ export const releasePost = async (props: PropsRP) => {
 };
 
 // get general post function
-export const getGeneralPost = async (props: PropsGGP) => {
+export const getAllPosts = async (props: PropsGGP) => {
   const contract = new ContractPromise(props.api, abi, contractAddress);
-  const { gasConsumed, result, output } = await contract.query.getGeneralPost(
+  const { gasConsumed, result, output } = await contract.query.getAllPosts(
     '',
     {
       value: 0,

@@ -1,7 +1,7 @@
 {
   "source": {
-    "hash": "0x6e8a6c9b1471f4f59b1ca9138305359d5844817768c4e9370667d9ec171504d2",
-    "language": "ink! 3.4.0",
+    "hash": "0x7c5d7f5bc2017ed42330fb7db7b3c089a1e814969e1f4bba578353a473bd97f6",
+    "language": "ink! 3.3.0",
     "compiler": "rustc 1.65.0-nightly"
   },
   "contract": {
@@ -13,61 +13,391 @@
     "spec": {
       "constructors": [
         {
-          "args": [
-            {
-              "label": "init_value",
-              "type": {
-                "displayName": ["bool"],
-                "type": 0
-              }
-            }
-          ],
-          "docs": [
-            "Constructor that initializes the `bool` value to the given `init_value`."
-          ],
-          "label": "new",
-          "payable": false,
-          "selector": "0x9bae9d5e"
-        },
-        {
           "args": [],
-          "docs": [
-            "Constructor that initializes the `bool` value to `false`.",
-            "",
-            "Constructors can delegate to other constructors."
-          ],
-          "label": "default",
-          "payable": false,
-          "selector": "0xed4b9d1b"
+          "docs": [],
+          "label": "new",
+          "payable": true,
+          "selector": "0x9bae9d5e"
         }
       ],
       "docs": [],
       "events": [],
       "messages": [
         {
-          "args": [],
-          "docs": [
-            " A message that can be called on instantiated contracts.",
-            " This one flips the value of the stored `bool` from `true`",
-            " to `false` and vice versa."
+          "args": [
+            {
+              "label": "description",
+              "type": {
+                "displayName": ["String"],
+                "type": 7
+              }
+            },
+            {
+              "label": "created_time",
+              "type": {
+                "displayName": ["String"],
+                "type": 7
+              }
+            },
+            {
+              "label": "post_img_url",
+              "type": {
+                "displayName": ["String"],
+                "type": 7
+              }
+            }
           ],
-          "label": "flip",
+          "docs": [],
+          "label": "release_post",
           "mutates": true,
           "payable": false,
           "returnType": null,
-          "selector": "0x633aa551"
+          "selector": "0x71e7f568"
+        },
+        {
+          "args": [
+            {
+              "label": "num",
+              "type": {
+                "displayName": ["u128"],
+                "type": 9
+              }
+            }
+          ],
+          "docs": [],
+          "label": "get_all_posts",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": ["Vec"],
+            "type": 24
+          },
+          "selector": "0xeb846650"
+        },
+        {
+          "args": [
+            {
+              "label": "num",
+              "type": {
+                "displayName": ["u128"],
+                "type": 9
+              }
+            },
+            {
+              "label": "account_id",
+              "type": {
+                "displayName": ["AccountId"],
+                "type": 1
+              }
+            }
+          ],
+          "docs": [],
+          "label": "get_user_posts",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": ["Vec"],
+            "type": 24
+          },
+          "selector": "0x7fa0d97c"
+        },
+        {
+          "args": [
+            {
+              "label": "post_id",
+              "type": {
+                "displayName": ["u128"],
+                "type": 9
+              }
+            }
+          ],
+          "docs": [],
+          "label": "add_likes",
+          "mutates": true,
+          "payable": false,
+          "returnType": null,
+          "selector": "0x5e22f734"
+        },
+        {
+          "args": [
+            {
+              "label": "message",
+              "type": {
+                "displayName": ["String"],
+                "type": 7
+              }
+            },
+            {
+              "label": "message_list_id",
+              "type": {
+                "displayName": ["u128"],
+                "type": 9
+              }
+            },
+            {
+              "label": "created_time",
+              "type": {
+                "displayName": ["String"],
+                "type": 7
+              }
+            }
+          ],
+          "docs": [],
+          "label": "send_message",
+          "mutates": true,
+          "payable": false,
+          "returnType": null,
+          "selector": "0xafdc403f"
+        },
+        {
+          "args": [
+            {
+              "label": "message_list_id",
+              "type": {
+                "displayName": ["u128"],
+                "type": 9
+              }
+            },
+            {
+              "label": "num",
+              "type": {
+                "displayName": ["u128"],
+                "type": 9
+              }
+            }
+          ],
+          "docs": [],
+          "label": "get_message_list",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": ["Vec"],
+            "type": 17
+          },
+          "selector": "0x648086a7"
+        },
+        {
+          "args": [
+            {
+              "label": "message_list_id",
+              "type": {
+                "displayName": ["u128"],
+                "type": 9
+              }
+            }
+          ],
+          "docs": [],
+          "label": "get_last_message",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": ["Message"],
+            "type": 18
+          },
+          "selector": "0x0d83c0a8"
         },
         {
           "args": [],
-          "docs": [" Simply returns the current value of our `bool`."],
-          "label": "get",
+          "docs": [],
+          "label": "create_profile",
+          "mutates": true,
+          "payable": false,
+          "returnType": null,
+          "selector": "0x7b7b338d"
+        },
+        {
+          "args": [
+            {
+              "label": "name",
+              "type": {
+                "displayName": ["String"],
+                "type": 7
+              }
+            },
+            {
+              "label": "img_url",
+              "type": {
+                "displayName": ["String"],
+                "type": 7
+              }
+            }
+          ],
+          "docs": [],
+          "label": "set_profile_info",
+          "mutates": true,
+          "payable": false,
+          "returnType": null,
+          "selector": "0x9e7a42de"
+        },
+        {
+          "args": [
+            {
+              "label": "followed_account_id",
+              "type": {
+                "displayName": ["AccountId"],
+                "type": 1
+              }
+            }
+          ],
+          "docs": [],
+          "label": "follow",
+          "mutates": true,
+          "payable": false,
+          "returnType": null,
+          "selector": "0x2dc739e0"
+        },
+        {
+          "args": [
+            {
+              "label": "account_id",
+              "type": {
+                "displayName": ["AccountId"],
+                "type": 1
+              }
+            }
+          ],
+          "docs": [],
+          "label": "get_following_list",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": ["Vec"],
+            "type": 5
+          },
+          "selector": "0x8c3a17fb"
+        },
+        {
+          "args": [
+            {
+              "label": "account_id",
+              "type": {
+                "displayName": ["AccountId"],
+                "type": 1
+              }
+            }
+          ],
+          "docs": [],
+          "label": "get_follower_list",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": ["Vec"],
+            "type": 5
+          },
+          "selector": "0x2b5eb1ba"
+        },
+        {
+          "args": [
+            {
+              "label": "account_id",
+              "type": {
+                "displayName": ["AccountId"],
+                "type": 1
+              }
+            }
+          ],
+          "docs": [],
+          "label": "get_profile_info",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": ["Profile"],
+            "type": 4
+          },
+          "selector": "0x7e52b853"
+        },
+        {
+          "args": [
+            {
+              "label": "account_id",
+              "type": {
+                "displayName": ["AccountId"],
+                "type": 1
+              }
+            }
+          ],
+          "docs": [],
+          "label": "check_created_info",
           "mutates": false,
           "payable": false,
           "returnType": {
             "displayName": ["bool"],
-            "type": 0
+            "type": 25
           },
-          "selector": "0x2f865bd9"
+          "selector": "0xa95014f2"
+        },
+        {
+          "args": [
+            {
+              "label": "account_id",
+              "type": {
+                "displayName": ["AccountId"],
+                "type": 1
+              }
+            }
+          ],
+          "docs": [],
+          "label": "get_total_likes",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": ["u128"],
+            "type": 9
+          },
+          "selector": "0xf609ad7e"
+        },
+        {
+          "args": [
+            {
+              "label": "account_id",
+              "type": {
+                "displayName": ["AccountId"],
+                "type": 1
+              }
+            }
+          ],
+          "docs": [],
+          "label": "balance_of",
+          "mutates": false,
+          "payable": false,
+          "returnType": {
+            "displayName": ["u128"],
+            "type": 9
+          },
+          "selector": "0x0f755a56"
+        },
+        {
+          "args": [
+            {
+              "label": "to_id",
+              "type": {
+                "displayName": ["AccountId"],
+                "type": 1
+              }
+            },
+            {
+              "label": "amount",
+              "type": {
+                "displayName": ["u128"],
+                "type": 9
+              }
+            }
+          ],
+          "docs": [],
+          "label": "transfer",
+          "mutates": true,
+          "payable": false,
+          "returnType": null,
+          "selector": "0x84a15da1"
+        },
+        {
+          "args": [],
+          "docs": [],
+          "label": "distribute_refer_likes",
+          "mutates": true,
+          "payable": false,
+          "returnType": null,
+          "selector": "0xebf10501"
         }
       ]
     },
@@ -81,7 +411,52 @@
                 "ty": 0
               }
             },
-            "name": "value"
+            "name": "profile_map"
+          },
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0100000000000000000000000000000000000000000000000000000000000000",
+                "ty": 12
+              }
+            },
+            "name": "post_map"
+          },
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0200000000000000000000000000000000000000000000000000000000000000",
+                "ty": 9
+              }
+            },
+            "name": "post_map_counter"
+          },
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0300000000000000000000000000000000000000000000000000000000000000",
+                "ty": 16
+              }
+            },
+            "name": "message_list_map"
+          },
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0400000000000000000000000000000000000000000000000000000000000000",
+                "ty": 9
+              }
+            },
+            "name": "message_list_map_counter"
+          },
+          {
+            "layout": {
+              "cell": {
+                "key": "0x0500000000000000000000000000000000000000000000000000000000000000",
+                "ty": 21
+              }
+            },
+            "name": "asset_mapping"
           }
         ]
       }
@@ -89,6 +464,431 @@
     "types": [
       {
         "id": 0,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "type": 10
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "K",
+              "type": 1
+            },
+            {
+              "name": "V",
+              "type": 4
+            }
+          ],
+          "path": ["openbrush_lang", "storage", "mapping", "Mapping"]
+        }
+      },
+      {
+        "id": 1,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "type": 2,
+                  "typeName": "[u8; 32]"
+                }
+              ]
+            }
+          },
+          "path": ["ink_env", "types", "AccountId"]
+        }
+      },
+      {
+        "id": 2,
+        "type": {
+          "def": {
+            "array": {
+              "len": 32,
+              "type": 3
+            }
+          }
+        }
+      },
+      {
+        "id": 3,
+        "type": {
+          "def": {
+            "primitive": "u8"
+          }
+        }
+      },
+      {
+        "id": 4,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "name": "following_list",
+                  "type": 5,
+                  "typeName": "Vec<AccountId>"
+                },
+                {
+                  "name": "follower_list",
+                  "type": 5,
+                  "typeName": "Vec<AccountId>"
+                },
+                {
+                  "name": "friend_list",
+                  "type": 5,
+                  "typeName": "Vec<AccountId>"
+                },
+                {
+                  "name": "user_id",
+                  "type": 1,
+                  "typeName": "AccountId"
+                },
+                {
+                  "name": "name",
+                  "type": 6,
+                  "typeName": "Option<String>"
+                },
+                {
+                  "name": "img_url",
+                  "type": 6,
+                  "typeName": "Option<String>"
+                },
+                {
+                  "name": "message_list_id_list",
+                  "type": 8,
+                  "typeName": "Vec<u128>"
+                },
+                {
+                  "name": "post_id_list",
+                  "type": 8,
+                  "typeName": "Vec<u128>"
+                }
+              ]
+            }
+          },
+          "path": ["astar_socialfi", "metadata", "Profile"]
+        }
+      },
+      {
+        "id": 5,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 1
+            }
+          }
+        }
+      },
+      {
+        "id": 6,
+        "type": {
+          "def": {
+            "variant": {
+              "variants": [
+                {
+                  "index": 0,
+                  "name": "None"
+                },
+                {
+                  "fields": [
+                    {
+                      "type": 7
+                    }
+                  ],
+                  "index": 1,
+                  "name": "Some"
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "T",
+              "type": 7
+            }
+          ],
+          "path": ["Option"]
+        }
+      },
+      {
+        "id": 7,
+        "type": {
+          "def": {
+            "primitive": "str"
+          }
+        }
+      },
+      {
+        "id": 8,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 9
+            }
+          }
+        }
+      },
+      {
+        "id": 9,
+        "type": {
+          "def": {
+            "primitive": "u128"
+          }
+        }
+      },
+      {
+        "id": 10,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 11
+            }
+          }
+        }
+      },
+      {
+        "id": 11,
+        "type": {
+          "def": {
+            "tuple": [1, 4]
+          }
+        }
+      },
+      {
+        "id": 12,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "type": 14
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "K",
+              "type": 9
+            },
+            {
+              "name": "V",
+              "type": 13
+            }
+          ],
+          "path": ["openbrush_lang", "storage", "mapping", "Mapping"]
+        }
+      },
+      {
+        "id": 13,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "name": "name",
+                  "type": 7,
+                  "typeName": "String"
+                },
+                {
+                  "name": "user_id",
+                  "type": 1,
+                  "typeName": "AccountId"
+                },
+                {
+                  "name": "created_time",
+                  "type": 7,
+                  "typeName": "String"
+                },
+                {
+                  "name": "img_url",
+                  "type": 7,
+                  "typeName": "String"
+                },
+                {
+                  "name": "user_img_url",
+                  "type": 7,
+                  "typeName": "String"
+                },
+                {
+                  "name": "description",
+                  "type": 7,
+                  "typeName": "String"
+                },
+                {
+                  "name": "total_likes",
+                  "type": 9,
+                  "typeName": "u128"
+                },
+                {
+                  "name": "post_id",
+                  "type": 9,
+                  "typeName": "u128"
+                }
+              ]
+            }
+          },
+          "path": ["astar_socialfi", "metadata", "Post"]
+        }
+      },
+      {
+        "id": 14,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 15
+            }
+          }
+        }
+      },
+      {
+        "id": 15,
+        "type": {
+          "def": {
+            "tuple": [9, 13]
+          }
+        }
+      },
+      {
+        "id": 16,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "type": 19
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "K",
+              "type": 9
+            },
+            {
+              "name": "V",
+              "type": 17
+            }
+          ],
+          "path": ["openbrush_lang", "storage", "mapping", "Mapping"]
+        }
+      },
+      {
+        "id": 17,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 18
+            }
+          }
+        }
+      },
+      {
+        "id": 18,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "name": "message",
+                  "type": 7,
+                  "typeName": "String"
+                },
+                {
+                  "name": "sender_id",
+                  "type": 1,
+                  "typeName": "AccountId"
+                },
+                {
+                  "name": "created_time",
+                  "type": 7,
+                  "typeName": "String"
+                }
+              ]
+            }
+          },
+          "path": ["astar_socialfi", "metadata", "Message"]
+        }
+      },
+      {
+        "id": 19,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 20
+            }
+          }
+        }
+      },
+      {
+        "id": 20,
+        "type": {
+          "def": {
+            "tuple": [9, 17]
+          }
+        }
+      },
+      {
+        "id": 21,
+        "type": {
+          "def": {
+            "composite": {
+              "fields": [
+                {
+                  "type": 22
+                }
+              ]
+            }
+          },
+          "params": [
+            {
+              "name": "K",
+              "type": 1
+            },
+            {
+              "name": "V",
+              "type": 9
+            }
+          ],
+          "path": ["openbrush_lang", "storage", "mapping", "Mapping"]
+        }
+      },
+      {
+        "id": 22,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 23
+            }
+          }
+        }
+      },
+      {
+        "id": 23,
+        "type": {
+          "def": {
+            "tuple": [1, 9]
+          }
+        }
+      },
+      {
+        "id": 24,
+        "type": {
+          "def": {
+            "sequence": {
+              "type": 13
+            }
+          }
+        }
+      },
+      {
+        "id": 25,
         "type": {
           "def": {
             "primitive": "bool"
