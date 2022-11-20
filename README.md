@@ -1,13 +1,4 @@
-# Sho's Nextjs template
-
-## Features
-
-- typescript
-- tailwindcss
-- Rome linter & formatter
-- vscode settings
-
-## Instantiate
+# ASTAR SocialFi frontend example
 
 ```zsh
 yarn install
